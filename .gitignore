@@ -1,0 +1,6 @@
+# Local GitHub deploy-key material belongs only in the private repository's
+# Actions secret. Never stage a private key in this public Pages repository.
+r0mask_privacy_deploy
+r0mask_privacy_deploy.pub
+*.pem
+*.key
