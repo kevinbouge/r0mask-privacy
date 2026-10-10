@@ -183,13 +183,20 @@
         <p>
           Coordinates are sent to R0Mask's App Check-protected Firebase callable to retrieve local
           environmental data, including optional advanced measurements when available. The callable
-          sends the bounded request to Open-Meteo; its commercial API key is kept server-side. This
-          occurs only after the user accepts the location explanation or selects a manual location.
+          sends the bounded request to Open-Meteo's keyless service; Android never connects to
+          Open-Meteo directly. This occurs only after the user accepts the location explanation or
+          selects a manual location.
         </p>
 
         <p>
           Manual map selections are saved locally on the device and are used to refresh
           environmental data for the selected coordinates.
+        </p>
+
+        <p>
+          While the optional Smithsonian Global Volcanism Program catalog integration is enabled,
+          approximate active coordinates are sent directly to its public catalog service only to
+          constrain the volcano-context lookup. This catalog context is not an eruption warning.
         </p>
 
         <p>
