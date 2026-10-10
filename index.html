@@ -193,17 +193,6 @@
           environmental data for the selected coordinates.
         </p>
 
-        <p>
-          While the optional Smithsonian Global Volcanism Program catalog integration is enabled,
-          approximate active coordinates are sent directly to its public catalog service only to
-          constrain the volcano-context lookup. This catalog context is not an eruption warning.
-        </p>
-
-        <p>
-          When public ambient-radiation context is available, the active coordinates and search
-          radius are sent to Safecast to request nearby public radiation measurements.
-        </p>
-
         <p>R0Mask does not maintain its own server-side location history.</p>
       </section>
 
@@ -233,8 +222,9 @@
         </p>
 
         <p>
-          The app selects relevant bounded Safecast sensor artifacts locally. R0Mask does not use
-          Safecast measurements to calculate personal radiation dose or infer incidents.
+          The app selects relevant bounded Safecast sensor artifacts locally. R0Mask does not send
+          active coordinates to Safecast, does not use Safecast measurements to calculate personal
+          radiation dose, and does not infer incidents.
         </p>
       </section>
 
@@ -242,27 +232,16 @@
         <h2>5. Natural hazard providers</h2>
 
         <p>
-          R0Mask may request natural hazard information from USGS, GDACS, NOAA Tsunami Warning
-          Centers, NASA EONET, Smithsonian Global Volcanism Program, MeteoAlarm, and NOAA/NWS where
-          suitable access is available.
+          Natural-hazard feeds are normalized by R0Mask Data and retrieved by the app through
+          Firebase Storage with App Check. The app performs final relevance checks against bounded
+          published geometry locally; it does not send active or saved coordinates to natural-hazard
+          providers.
         </p>
 
         <p>
-          USGS, GDACS, NOAA tsunami CAP, and NASA EONET are requested as globally reusable public
-          feeds and filtered locally where practical. Smithsonian GVP context uses bounded public
-          WFS catalog requests for volcano identity and location context. MeteoAlarm Atom uses
-          country warning feeds for supported countries. These providers do not receive
-          saved-location names, Personal Allergy Profile selections, Activity settings, health
-          context, notification preferences, or RevenueCat identifiers from R0Mask.
-        </p>
-
-        <p>
-          NOAA/NWS official alert lookup may receive active coordinates for U.S. severe-weather
-          alerts because the app does not store a reliable NWS zone or state identifier. MeteoAlarm
-          EDR warning geometry remains disabled unless an explicit re-user API token is configured;
-          R0Mask does not bundle that credential in the public mobile app. R0Mask does not use
-          natural hazard providers for emergency dispatch, background monitoring, analytics, or
-          telemetry.
+          R0Mask does not use natural-hazard providers for emergency dispatch, background
+          monitoring, analytics, or telemetry. Published hazard context is not a safety guarantee or
+          a substitute for official emergency instructions.
         </p>
       </section>
 
